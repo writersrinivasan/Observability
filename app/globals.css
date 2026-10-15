@@ -1,0 +1,31 @@
+@import "@xyflow/react/dist/style.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: dark; }
+html, body { background: #070a16; color: #e5e7eb; }
+body {
+  background-image:
+    radial-gradient(circle at 10% -10%, rgba(168, 85, 247, 0.22), transparent 40%),
+    radial-gradient(circle at 90% 0%, rgba(14, 165, 233, 0.18), transparent 40%),
+    radial-gradient(circle at 50% 110%, rgba(249, 115, 22, 0.12), transparent 45%);
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+::selection { background: #d946ef66; }
+* { scrollbar-width: thin; scrollbar-color: #ffffff30 transparent; }
+
+.react-flow__node { font-family: inherit; }
+.react-flow__edge-path { transition: stroke 0.4s, stroke-width 0.3s; }
+.react-flow__pane { cursor: default; }
+
+@keyframes dashdraw { from { stroke-dashoffset: 28; } to { stroke-dashoffset: 0; } }
+@keyframes stepflash {
+  0% { transform: scale(1); filter: brightness(1); }
+  35% { transform: scale(1.08); filter: brightness(1.8); box-shadow: 0 0 18px currentColor; }
+  100% { transform: scale(1); filter: brightness(1); }
+}
+@keyframes indeterminate { 0% { transform: translateX(-100%); } 100% { transform: translateX(300%); } }
+@keyframes arrowpulse { 0%,100% { opacity: .35; } 50% { opacity: 1; } }
+.flow-arrow { animation: arrowpulse 1.4s ease-in-out infinite; }
